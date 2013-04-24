@@ -15,14 +15,13 @@ module XmlHasher
       else
         if children.size == 1
           child = children.first
-          h[child.name] = child.to_hash
+          h[name] = child.to_hash
         else
           if children.map(&:name).uniq.size == 1
             h[name] = children.map { |child| child.to_hash }
           else
-            children.each do |child|
-              h[child.name] = child.to_hash
-            end
+            h[name] = children.inject({}) { |r, child| r.merge!(child.to_hash); r}
+            #h[name] = children.map { |child| child.to_hash }
           end
         end
       end

@@ -1,23 +1,48 @@
 # XmlHasher
 
 [![Build Status](https://travis-ci.org/cloocher/xmlhasher.png)](https://travis-ci.org/cloocher/xmlhasher)
+[![Coverage Status](https://coveralls.io/repos/cloocher/xmlhasher/badge.png?branch=master)](https://coveralls.io/r/cloocher/xmlhasher)
+[![Gem Version](https://badge.fury.io/rb/xmlhasher.png)](http://badge.fury.io/rb/xmlhasher)
 
-Xml to Ruby Hash converter
+Fast XML to Ruby Hash converter
 
 ## Installation
 
-Add this line to your application's Gemfile:
+## Installation
 
-    gem 'xmlhasher'
+Aggcat is available through [Rubygems](http://rubygems.org/gems/xmlhasher) and can be installed via:
 
-And then execute:
+```
+$ gem install xmlhasher
+```
 
-    $ bundle
+or add it to your Gemfile like this:
 
-Or install it yourself as:
-
-    $ gem install xmlhasher
+```
+gem 'xmlhasher'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'xmlhasher'
+
+# XmlHasher global configuration
+XmlHasher.configure do |config|
+  config.snakecase = true
+  config.ignore_namespaces = true
+end
+
+# alternatively, specify configuration options when instantiating a Parser
+parser = XmlHasher::Parser.new(
+  :snakecase => true,
+  :ignore_namespaces => true
+)
+
+# parse XML file
+XmlHasher.parse(File.new('/path/to/my/file.xml'))
+
+# parse XML string
+XmlHasher.parse(xml)
+
+```

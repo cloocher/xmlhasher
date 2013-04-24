@@ -1,7 +1,6 @@
 # XmlHasher
 
 [![Build Status](https://travis-ci.org/cloocher/xmlhasher.png)](https://travis-ci.org/cloocher/xmlhasher)
-[![Coverage Status](https://coveralls.io/repos/cloocher/xmlhasher/badge.png?branch=master)](https://coveralls.io/r/cloocher/xmlhasher)
 [![Gem Version](https://badge.fury.io/rb/xmlhasher.png)](http://badge.fury.io/rb/xmlhasher)
 
 Fast XML to Ruby Hash converter

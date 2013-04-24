@@ -16,7 +16,7 @@ module XmlHasher
     private
 
     def convert(xml)
-      xml.respond_to?(:read) && xml.respond_to?(:readpartial) ? StringIO.new(xml) : xml
+      xml.respond_to?(:read) || xml.respond_to?(:readpartial) ? xml : StringIO.new(xml)
     end
   end
 end

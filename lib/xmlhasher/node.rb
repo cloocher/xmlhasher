@@ -20,8 +20,7 @@ module XmlHasher
           if children.map(&:name).uniq.size == 1
             h[name] = children.map { |child| child.to_hash }
           else
-            h[name] = children.inject({}) { |r, child| r.merge!(child.to_hash); r}
-            #h[name] = children.map { |child| child.to_hash }
+            h[name] = children.inject({}) { |r, child| r.merge!(child.to_hash); r }
           end
         end
       end

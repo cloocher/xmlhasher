@@ -196,6 +196,12 @@ class XmlhasherTest < Test::Unit::TestCase
     assert_equal expected, XmlHasher::Parser.new.parse(xml)
   end
 
+  def test_array_detection_with_mixed_children
+    xml = %[<tag><tag2 attr='1' /><tag3>content</tag3><tag2 attr='2' /></tag>]
+    expected = {:tag => {:tag2 => [{:attr => '1'}, {:attr => '2'}], :tag3 => 'content'}}
+    assert_equal expected, XmlHasher::Parser.new.parse(xml)
+  end
+
   def test_single_child
     xml = %[<tag><tag2 attr='1' /></tag>]
     expected = {:tag => {:tag2 => {:attr => '1'}}}

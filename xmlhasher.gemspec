@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['gene.drabkin@gmail.com']
   spec.description   = %q{XmlHasher converts XML to Ruby Hash}
   spec.summary       = %q{XmlHasher converts XML to Ruby Hash}
-  spec.homepage      = 'https://github.com/cloocher/xml_hasher'
+  spec.homepage      = 'https://github.com/cloocher/xmlhasher'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

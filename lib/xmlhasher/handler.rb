@@ -1,4 +1,5 @@
 require 'ox'
+require 'escape_utils'
 
 module XmlHasher
   class Handler < ::Ox::Sax
@@ -17,12 +18,12 @@ module XmlHasher
 
     def attr(name, value)
       unless ignore_attribute?(name)
-        @stack.last.attributes[transform(name)] = value unless @stack.empty?
+        @stack.last.attributes[transform(name)] = escape(value) unless @stack.empty?
       end
     end
 
     def text(value)
-      @stack.last.text = value
+      @stack.last.text = escape(value)
     end
 
     def end_element(name)
@@ -40,6 +41,10 @@ module XmlHasher
       name = name.to_s.split(':').last if @options[:ignore_namespaces]
       name = Util.snakecase(name) if @options[:snakecase]
       name
+    end
+
+    def escape(value)
+      EscapeUtils.unescape_html(value)
     end
 
     def ignore_attribute?(name)

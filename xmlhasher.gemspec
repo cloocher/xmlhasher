@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = XmlHasher::VERSION
   spec.authors       = ['Gene Drabkin']
   spec.email         = ['gene.drabkin@gmail.com']
-  spec.description   = %q{XmlHasher converts XML to Ruby Hash}
+  spec.description   = %q{XML to Ruby Hash converter}
   spec.summary       = %q{XmlHasher converts XML to Ruby Hash}
   spec.homepage      = 'https://github.com/cloocher/xmlhasher'
   spec.license       = 'MIT'

@@ -39,8 +39,7 @@ class XmlhasherTest < Test::Unit::TestCase
                  :phoneNumber => "123-456-7890"},
             :xmlns => "http://schema.intuit.com/platform/fdatafeed/account/v1",
             :"xmlns:ns2" => "http://schema.intuit.com/platform/fdatafeed/common/v1"}
-    xml = fixture('institution.xml').read
-    result = XmlHasher::Parser.new.parse(xml)
+    result = XmlHasher::Parser.new.parse(fixture('institution.xml').read)
     assert_equal hash, result
   end
 
@@ -83,8 +82,50 @@ class XmlhasherTest < Test::Unit::TestCase
                             :value_length_min => "1"}]},
                  :locale => {:language => "en"},
                  :phone_number => "123-456-7890"}}
-    xml = fixture('institution.xml').read
-    result = XmlHasher::Parser.new(options).parse(xml)
+    result = XmlHasher::Parser.new(options).parse(fixture('institution.xml').read)
+    assert_equal hash, result
+  end
+
+  def test_stream_parsing_with_tranformation
+    options = {
+        :snakecase => true,
+        :ignore_namespaces => true
+    }
+    hash = {:institution_detail =>
+                {:address =>
+                     {:address1 => "100 Main Street",
+                      :city => "Anytown",
+                      :country => "USA",
+                      :postal_code => "94043",
+                      :state => "CA"},
+                 :currency_code => "ANG",
+                 :email_address => "CustomerCentralBank@intuit.com",
+                 :home_url => "http://www.example.com",
+                 :institution_id => "100000",
+                 :institution_name => "CCBank",
+                 :keys =>
+                     {:key =>
+                          [{:description => "2",
+                            :display_flag => "true",
+                            :display_order => "1",
+                            :instructions => "2",
+                            :mask => "false",
+                            :name => "Banking Userid",
+                            :status => "Active",
+                            :value_length_max => "100",
+                            :value_length_min => "1"},
+                           {:description => "2",
+                            :display_flag => "false",
+                            :display_order => "2",
+                            :instructions => "2",
+                            :mask => "true",
+                            :name => "Banking Password",
+                            :status => "Active",
+                            :value_length_max => "100",
+                            :value_length_min => "1"}]},
+                 :locale => {:language => "en"},
+                 :phone_number => "123-456-7890"}}
+    result = XmlHasher::Parser.new(options).parse(fixture('institution.xml'))
     assert_equal hash, result
   end
 end

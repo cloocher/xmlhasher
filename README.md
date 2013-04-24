@@ -44,7 +44,7 @@ XmlHasher.parse(File.new('/path/to/my/file.xml'))
 
 # parse XML string
 XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
- => {:tag1=>{:tag2=>"content"}}
+# => {:tag1=>{:tag2=>"content"}}
 
 ```
 ## Requirements

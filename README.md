@@ -1,5 +1,7 @@
 # XmlHasher
 
+[![Build Status](https://travis-ci.org/cloocher/xmlhasher.png)](https://travis-ci.org/cloocher/xmlhasher)
+
 Xml to Ruby Hash converter
 
 ## Installation

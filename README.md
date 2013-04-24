@@ -46,3 +46,12 @@ XmlHasher.parse(File.new('/path/to/my/file.xml'))
 XmlHasher.parse(xml)
 
 ```
+## Requirements
+
+* Ruby 1.8.7 or higher
+
+## Copyright
+Copyright (c) 2013 Gene Drabkin.
+See [LICENSE][] for details.
+
+[license]: LICENSE.md

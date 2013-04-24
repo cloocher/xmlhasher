@@ -9,6 +9,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start
+Coveralls.wear!
 
 require 'test/unit'
 require 'xmlhasher'

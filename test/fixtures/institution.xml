@@ -1,0 +1,43 @@
+<InstitutionDetail xmlns="http://schema.intuit.com/platform/fdatafeed/account/v1"
+                   xmlns:ns2="http://schema.intuit.com/platform/fdatafeed/common/v1">
+  <institutionId>100000</institutionId>
+  <institutionName>CCBank</institutionName>
+  <homeUrl>http://www.example.com</homeUrl>
+  <phoneNumber>123-456-7890</phoneNumber>
+  <address>
+    <ns2:address1>100 Main Street</ns2:address1>
+    <ns2:city>Anytown</ns2:city>
+    <ns2:state>CA</ns2:state>
+    <ns2:postalCode>94043</ns2:postalCode>
+    <ns2:country>USA</ns2:country>
+  </address>
+  <emailAddress>CustomerCentralBank@intuit.com</emailAddress>
+  <currencyCode>ANG</currencyCode>
+  <locale>
+    <language>en</language>
+  </locale>
+  <keys>
+    <key>
+      <name>Banking Userid</name>
+      <status>Active</status>
+      <valueLengthMin>1</valueLengthMin>
+      <valueLengthMax>100</valueLengthMax>
+      <displayFlag>true</displayFlag>
+      <displayOrder>1</displayOrder>
+      <mask>false</mask>
+      <instructions>2</instructions>
+      <description>2</description>
+    </key>
+    <key>
+      <name>Banking Password</name>
+      <status>Active</status>
+      <valueLengthMin>1</valueLengthMin>
+      <valueLengthMax>100</valueLengthMax>
+      <displayFlag>false</displayFlag>
+      <displayOrder>2</displayOrder>
+      <mask>true</mask>
+      <instructions>2</instructions>
+      <description>2</description>
+    </key>
+  </keys>
+</InstitutionDetail>

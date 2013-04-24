@@ -1,4 +1,4 @@
-require 'ox'
+require 'stringio'
 
 module XmlHasher
   class Parser
@@ -9,8 +9,14 @@ module XmlHasher
 
     def parse(xml)
       handler = XmlHasher::Handler.new
-      Ox.sax_parse(handler, xml)
+      Ox.sax_parse(handler, convert(xml))
       handler.to_hash
+    end
+
+    private
+
+    def convert(xml)
+      xml.respond_to?(:read) && xml.respond_to?(:readpartial) ? StringIO.new(xml) : xml
     end
   end
 end

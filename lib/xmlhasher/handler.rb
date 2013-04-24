@@ -1,3 +1,5 @@
+require 'ox'
+
 module XmlHasher
   class Handler < ::Ox::Sax
     def initialize(options = {})

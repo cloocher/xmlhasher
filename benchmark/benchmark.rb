@@ -31,7 +31,7 @@ end
 
 runs = 100
 xml = File.read(File.expand_path('../../test/fixtures/institution.xml', __FILE__))
-puts 'Benchmarking conversion of small xml from text to Hash:'
+puts 'Converting small xml from text to Hash:'
 Benchmark.bm 10 do |x|
   ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
   x.report 'activesupport(rexml)   ' do
@@ -61,10 +61,10 @@ Benchmark.bm 10 do |x|
   end
 end
 
-runs = 5
 puts
+runs = 5
 path = File.expand_path('../../test/fixtures/institutions.xml', __FILE__)
-puts 'Benchmarking conversion of large xml from file to Hash:'
+puts 'Converting large xml from file to Hash:'
 Benchmark.bm 5 do |x|
   ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
   x.report 'activesupport(rexml)   ' do

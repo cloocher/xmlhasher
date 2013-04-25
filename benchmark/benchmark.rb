@@ -1,7 +1,7 @@
 $:.push File.expand_path('../../lib', __FILE__)
 
-require 'xmlhasher'
 require 'benchmark'
+require 'xmlhasher'
 begin
   require 'nori'
 rescue

@@ -48,7 +48,7 @@ XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 ```
 ## Benchmarks
 
-How fast is it?  Try it for your self - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/benchmark/benchmark.rb)
+How fast is it?  Try it for your self - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/banchmark/banchmark.rb)
 
 ```
 Benchmarking conversion of small xml from text to Hash

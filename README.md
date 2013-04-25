@@ -53,7 +53,7 @@ How fast is it?  Try it for yourself - [benchmark.rb](https://github.com/clooche
 ```
 Converting small xml from text to Hash:
 
-                 user     system      total        real
+                            user     system      total        real
 activesupport(rexml)     0.380000   0.000000   0.380000 (  0.385326)
 activesupport(libxml)    0.060000   0.000000   0.060000 (  0.062008)
 activesupport(nokogiri)  0.090000   0.000000   0.090000 (  0.089466)
@@ -63,7 +63,7 @@ xmlhasher                0.010000   0.000000   0.010000 (  0.017366)
 
 Converting large xml from file to Hash:
 
-            user     system      total        real
+                            user     system      total        real
 activesupport(rexml)    57.230000   0.240000  57.470000 ( 57.460510)
 activesupport(libxml)   # Segmentation fault
 activesupport(nokogiri) 12.650000   0.250000  12.900000 ( 12.908073)

@@ -51,7 +51,8 @@ XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 How fast is it?  Try it for your self - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/benchmark/benchmark.rb)
 
 ```
-Benchmarking conversion of small xml from text to Hash
+Benchmarking conversion of small xml from text to Hash:
+
                  user     system      total        real
 activesupport(rexml)     0.380000   0.000000   0.380000 (  0.385326)
 activesupport(libxml)    0.060000   0.000000   0.060000 (  0.062008)
@@ -60,7 +61,8 @@ xmlsimple                0.480000   0.010000   0.490000 (  0.490938)
 nero                     0.120000   0.000000   0.120000 (  0.123612)
 xmlhasher                0.010000   0.000000   0.010000 (  0.017366)
 
-Benchmarking conversion of large xml from file to Hash
+Benchmarking conversion of large xml from file to Hash:
+
             user     system      total        real
 activesupport(rexml)    57.230000   0.240000  57.470000 ( 57.460510)
 activesupport(libxml)   # Segmentation fault

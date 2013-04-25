@@ -71,6 +71,8 @@ xmlsimple               49.980000   0.160000  50.140000 ( 50.140775)
 nori                    15.590000   0.110000  15.700000 ( 15.697411)
 xmlhasher                4.290000   0.030000   4.320000 (  4.316379)
 ```
+Note: benchmarks were generated on a Macbook Pro using Ruby 1.9.3p392
+
 ## Requirements
 
 * Ruby 1.8.7 or higher

@@ -7,7 +7,7 @@ Fast XML to Ruby Hash converter
 
 ## Installation
 
-Aggcat is available through [Rubygems](http://rubygems.org/gems/xmlhasher) and can be installed via:
+XmlHasher is available through [Rubygems](http://rubygems.org/gems/xmlhasher) and can be installed via:
 
 ```
 $ gem install xmlhasher

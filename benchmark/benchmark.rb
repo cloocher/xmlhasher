@@ -52,7 +52,7 @@ Benchmark.bm 10 do |x|
     runs.times { XmlSimple.xml_in(xml) }
   end
 
-  x.report 'nero                   ' do
+  x.report 'nori                   ' do
     runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
   end
 
@@ -85,7 +85,7 @@ Benchmark.bm 5 do |x|
     runs.times { XmlSimple.xml_in(path) }
   end
 
-  x.report 'nero                   ' do
+  x.report 'nori                   ' do
     runs.times { Nori.new(:advanced_typecasting => false).parse(File.new(path).read) } # Nori doesn't support reading from a stream, load the file in memory
   end
 

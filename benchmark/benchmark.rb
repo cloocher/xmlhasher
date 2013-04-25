@@ -5,27 +5,27 @@ require 'xmlhasher'
 begin
   require 'nori'
 rescue
-  puts "nori gem in not install, run 'gem install nori'"
+  puts "nori gem in not installed, run 'gem install nori'"
 end
 begin
   require 'active_support/core_ext/hash/conversions'
 rescue
-  puts "active_support gem in not install, run 'gem install activesupport'"
+  puts "active_support gem in not installed, run 'gem install activesupport'"
 end
 begin
   require 'xmlsimple'
 rescue
-  puts "xmlsimple gem in not install, run 'gem install xml-simple'"
+  puts "xmlsimple gem in not installed, run 'gem install xml-simple'"
 end
 begin
   require 'nokogiri'
 rescue
-  puts "nokogiri gem in not install, run 'gem install nokogiri'"
+  puts "nokogiri gem in not installed, run 'gem install nokogiri'"
 end
 begin
   require 'libxml'
 rescue
-  puts "libxml gem in not install, run 'gem install libxml-ruby'"
+  puts "libxml gem in not installed, run 'gem install libxml-ruby'"
 end
 
 

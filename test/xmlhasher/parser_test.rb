@@ -226,6 +226,16 @@ class XmlhasherTest < Test::Unit::TestCase
     assert_equal expected, XmlHasher::Parser.new(options).parse(xml)
   end
 
+  def test_snakecasing_string_elements
+    options = {
+        :snakecase => true,
+        :string_keys => true
+    }
+    xml = %[<my-tag><MyTag2>content</MyTag2></my-tag>]
+    expected = {'my_tag' => {'my_tag2' => 'content'}}
+    assert_equal expected, XmlHasher::Parser.new(options).parse(xml)
+  end
+
   def test_empty_tag
     xml = %[<tag></tag>]
     expected = {:tag => nil}

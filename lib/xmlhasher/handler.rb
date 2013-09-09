@@ -40,6 +40,7 @@ module XmlHasher
     def transform(name)
       name = name.to_s.split(':').last if @options[:ignore_namespaces]
       name = Util.snakecase(name) if @options[:snakecase]
+      name = name.to_sym unless @options[:string_keys]
       name
     end
 

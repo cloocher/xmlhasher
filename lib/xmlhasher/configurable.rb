@@ -1,9 +1,9 @@
 module XmlHasher
   module Configurable
 
-    attr_writer :snakecase, :ignore_namespaces
+    attr_writer :snakecase, :ignore_namespaces, :string_keys
 
-    KEYS = [:snakecase, :ignore_namespaces]
+    KEYS = [:snakecase, :ignore_namespaces, :string_keys]
 
     def configure
       yield self

@@ -6,18 +6,22 @@ class XmlhasherTest < Test::Unit::TestCase
     configurable = XmlHasher.configure do |config|
       config.snakecase = true
       config.ignore_namespaces = true
+      config.string_keys = true
     end
     assert_equal true, configurable.instance_variable_get(:'@snakecase')
     assert_equal true, configurable.instance_variable_get(:'@ignore_namespaces')
+    assert_equal true, configurable.instance_variable_get(:'@string_keys')
   end
 
   def test_configure_settings_all_off
     configurable = XmlHasher.configure do |config|
       config.snakecase = false
       config.ignore_namespaces = false
+      config.string_keys = false
     end
     assert_equal false, configurable.instance_variable_get(:'@snakecase')
     assert_equal false, configurable.instance_variable_get(:'@ignore_namespaces')
+    assert_equal false, configurable.instance_variable_get(:'@string_keys')
   end
 
   def test_parser

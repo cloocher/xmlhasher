@@ -25,16 +25,26 @@ gem 'xmlhasher'
 require 'xmlhasher'
 
 # XmlHasher global configuration
+#
+# snakecase = true converts all keys to snake case notation
+# ignore_namespaces = true will remove XML namespace attributes
+# string_keys = true will convert all keys to Strings, otherwise they will be Symbols
+#
+# here is default configuration
 XmlHasher.configure do |config|
   config.snakecase = true
   config.ignore_namespaces = true
+  config.string_keys = false
 end
 
 # alternatively, specify configuration options when instantiating a Parser
 parser = XmlHasher::Parser.new(
   :snakecase => true,
   :ignore_namespaces => true
+  :string_keys => false
 )
+
+# by default, XmlHasher will convert all keys to symbols.  If you want all keys to be Strings, set :string_keys option to 'true'
 
 # parse XML file
 XmlHasher.parse(File.new('/path/to/my/file.xml'))

@@ -12,7 +12,6 @@ rvm:
   - rbx
   - rbx-19mode
   - ree
-  - ruby-head
 env:
   - JRUBY_OPTS="-Xcext.enabled=true"
 script:

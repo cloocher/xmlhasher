@@ -26,9 +26,9 @@ require 'xmlhasher'
 
 # XmlHasher global configuration
 #
-# snakecase = true converts all keys to snake case notation
-# ignore_namespaces = true will remove XML namespace attributes
-# string_keys = true will convert all keys to Strings, otherwise they will be Symbols
+# snakecase - convert all keys to snake case notation
+# ignore_namespaces - remove XML namespaces
+# string_keys - represent keys as Strings instead of Symbols
 #
 # here is default configuration
 XmlHasher.configure do |config|

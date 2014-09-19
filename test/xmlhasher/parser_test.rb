@@ -172,9 +172,15 @@ class XmlhasherTest < Test::Unit::TestCase
     assert_equal expected, XmlHasher::Parser.new.parse(xml)
   end
 
-  def test_ignore_attributes_if_has_content
+  def test_do_not_ignore_attributes_if_has_content
     xml = %[<tag a1='1' a2='2'>content</tag>]
-    expected = {:tag => 'content'}
+    expected = {:tag => {:a1 =>'1', :a2 => '2', :value => 'content'}}
+    assert_equal expected, XmlHasher::Parser.new.parse(xml)
+  end
+
+  def test_override_value_attribute_if_has_content
+    xml = %[<tag a1='1' value='2'>content</tag>]
+    expected = {:tag => {:a1 =>'1', :value => 'content'}}
     assert_equal expected, XmlHasher::Parser.new.parse(xml)
   end
 

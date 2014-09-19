@@ -11,9 +11,13 @@ module XmlHasher
     def to_hash
       h = {}
       if text
-        h[name] = text
+        if clean_attributes.empty?
+          h[name] = text
+        else
+          h[name] = clean_attributes.merge(value: text)
+        end
       else
-        h[name] = attributes.inject({}) { |r, (key, value)| r[key] = value if !value.nil? && !value.to_s.empty?; r }
+        h[name] = clean_attributes
         if children.size == 1
           child = children.first
           h[name].merge!(child.to_hash)
@@ -24,6 +28,12 @@ module XmlHasher
       h[name] = nil if h[name].empty?
       h
     end
+
+    private
+
+    def clean_attributes
+      return @clean_attributes if @clean_attributes
+      @clean_attributes = attributes.inject({}) { |r, (key, value)| r[key] = value if !value.nil? && !value.to_s.empty?; r }
+    end
   end
 end
-

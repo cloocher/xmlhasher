@@ -2,16 +2,17 @@ module XmlHasher
   class Node
     attr_accessor :name, :attributes, :children, :text
 
-    def initialize(name)
+    def initialize(name, ignore_attributes_on_content = false)
       @name = name
       @attributes = {}
       @children = []
+      @ignore_attributes_on_content = ignore_attributes_on_content
     end
 
     def to_hash
       h = {}
       if text
-        if clean_attributes.empty?
+        if should_ignore_attributes_on_content?
           h[name] = text
         else
           h[name] = clean_attributes.merge(value: text)
@@ -30,6 +31,10 @@ module XmlHasher
     end
 
     private
+
+    def should_ignore_attributes_on_content?
+      @ignore_attributes_on_content || clean_attributes.empty?
+    end
 
     def clean_attributes
       return @clean_attributes if @clean_attributes

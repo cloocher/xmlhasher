@@ -3,7 +3,7 @@ module XmlHasher
 
     attr_writer :snakecase, :ignore_namespaces, :string_keys
 
-    KEYS = [:snakecase, :ignore_namespaces, :string_keys]
+    KEYS = [:snakecase, :ignore_namespaces, :string_keys, :ignore_attributes_on_content]
 
     def configure
       yield self

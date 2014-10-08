@@ -13,7 +13,7 @@ module XmlHasher
     end
 
     def start_element(name)
-      @stack.push(Node.new(transform(name)))
+      @stack.push(Node.new(transform(name), @options[:ignore_attributes_on_content]))
     end
 
     def attr(name, value)

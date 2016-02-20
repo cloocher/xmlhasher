@@ -10,7 +10,7 @@ module XmlHasher
 
     def to_hash
       h = {}
-      if text
+      if text && !text.empty?
         h[name] = text
       else
         h[name] = attributes.inject({}) { |r, (key, value)| r[key] = value if !value.nil? && !value.to_s.empty?; r }

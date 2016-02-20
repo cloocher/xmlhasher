@@ -83,7 +83,7 @@ Note: benchmarks were generated on a Macbook Pro using Ruby 1.9.3p392
 
 ## Requirements
 
-* Ruby 1.8.7 or higher
+* Ruby 1.9.3 or higher
 
 ## Copyright
 Copyright (c) 2013 Gene Drabkin.

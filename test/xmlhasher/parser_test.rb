@@ -241,4 +241,10 @@ class XmlhasherTest < Test::Unit::TestCase
     expected = {:tag => nil}
     assert_equal expected, XmlHasher::Parser.new.parse(xml)
   end
+
+  def test_cdata_value
+    xml = %[<title><![CDATA[Midhir uploaded a photo.]]></title>]
+    expected = {:title => "Midhir uploaded a photo."}
+    assert_equal expected, XmlHasher::Parser.new.parse(xml)
+  end
 end

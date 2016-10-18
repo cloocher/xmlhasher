@@ -26,6 +26,10 @@ module XmlHasher
       @stack.last.text = escape(value)
     end
 
+    def cdata(str)
+      @stack.last.text = escape(str)
+    end
+
     def end_element(name)
       if @stack.size == 1
         @hash = @stack.pop.to_hash

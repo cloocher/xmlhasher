@@ -28,69 +28,44 @@ rescue LoadError
   puts "libxml gem in not installed, run 'gem install libxml-ruby'"
 end
 
-label_size = 25 # needs to be >= any label's size
 
-runs = 100
-xml = File.read(File.expand_path('../../test/fixtures/institution.xml', __FILE__))
+def benchmark(runs, xml)
+  label_width = 25 # needs to be >= any label's size
+
+  Benchmark.bm(label_width) do |x|
+    ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
+    x.report 'activesupport(rexml)' do
+      runs.times { Hash.from_xml(xml) }
+    end
+
+    ActiveSupport::XmlMini.backend = 'LibXML'
+    x.report 'activesupport(libxml)' do
+      runs.times { Hash.from_xml(xml) }
+    end
+
+    ActiveSupport::XmlMini.backend = 'Nokogiri'
+    x.report 'activesupport(nokogiri)' do
+      runs.times { Hash.from_xml(xml) }
+    end
+
+    x.report 'xmlsimple' do
+      runs.times { XmlSimple.xml_in(xml) }
+    end
+
+    x.report 'nori' do
+      runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
+    end
+
+    x.report 'xmlhasher' do
+      runs.times { XmlHasher.parse(xml) }
+    end
+  end
+end
+
 puts 'Converting small xml from text to Hash:'
-Benchmark.bm label_size do |x|
-  ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
-  x.report 'activesupport(rexml)' do
-    runs.times { Hash.from_xml(xml) }
-  end
-
-  ActiveSupport::XmlMini.backend = 'LibXML'
-  x.report 'activesupport(libxml)' do
-    runs.times { Hash.from_xml(xml) }
-  end
-
-  ActiveSupport::XmlMini.backend = 'Nokogiri'
-  x.report 'activesupport(nokogiri)' do
-    runs.times { Hash.from_xml(xml) }
-  end
-
-  x.report 'xmlsimple' do
-    runs.times { XmlSimple.xml_in(xml) }
-  end
-
-  x.report 'nori' do
-    runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
-  end
-
-  x.report 'xmlhasher' do
-    runs.times { XmlHasher.parse(xml) }
-  end
-end
-
+benchmark(100, File.read(File.expand_path('../../test/fixtures/institution.xml', __FILE__)))
 puts
-runs = 5
-xml = File.read(File.expand_path('../../test/fixtures/institutions.xml', __FILE__))
+
 puts 'Converting large xml from file to Hash:'
-Benchmark.bm label_size do |x|
-  ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
-  x.report 'activesupport(rexml)' do
-    runs.times { Hash.from_xml(xml) }
-  end
-
-  ActiveSupport::XmlMini.backend = 'LibXML'
-  x.report 'activesupport(libxml)' do
-    runs.times { Hash.from_xml(xml) } # Segmentation fault
-  end
-
-  ActiveSupport::XmlMini.backend = 'Nokogiri'
-  x.report 'activesupport(nokogiri)' do
-    runs.times { Hash.from_xml(xml) }
-  end
-
-  x.report 'xmlsimple' do
-    runs.times { XmlSimple.xml_in(xml) }
-  end
-
-  x.report 'nori' do
-    runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
-  end
-
-  x.report 'xmlhasher' do
-    runs.times { XmlHasher.parse(xml) }
-  end
-end
+benchmark(5, File.read(File.expand_path('../../test/fixtures/institutions.xml', __FILE__)))
+puts

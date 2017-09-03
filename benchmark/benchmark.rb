@@ -63,33 +63,33 @@ end
 
 puts
 runs = 5
-path = File.expand_path('../../test/fixtures/institutions.xml', __FILE__)
+xml = File.read(File.expand_path('../../test/fixtures/institutions.xml', __FILE__))
 puts 'Converting large xml from file to Hash:'
 Benchmark.bm 5 do |x|
   ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
   x.report 'activesupport(rexml)   ' do
-    runs.times { Hash.from_xml(File.new(path)) }
+    runs.times { Hash.from_xml(xml) }
   end
 
   ActiveSupport::XmlMini.backend = 'LibXML'
   x.report 'activesupport(libxml)  ' do
-    runs.times { Hash.from_xml(File.new(path)) } # Segmentation fault
+    runs.times { Hash.from_xml(xml) } # Segmentation fault
   end
 
   ActiveSupport::XmlMini.backend = 'Nokogiri'
   x.report 'activesupport(nokogiri)' do
-    runs.times { Hash.from_xml(File.new(path)) }
+    runs.times { Hash.from_xml(xml) }
   end
 
   x.report 'xmlsimple              ' do
-    runs.times { XmlSimple.xml_in(path) }
+    runs.times { XmlSimple.xml_in(xml) }
   end
 
   x.report 'nori                   ' do
-    runs.times { Nori.new(:advanced_typecasting => false).parse(File.new(path).read) } # Nori doesn't support reading from a stream, load the file in memory
+    runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
   end
 
   x.report 'xmlhasher              ' do
-    runs.times { XmlHasher.parse(File.new(path)) }
+    runs.times { XmlHasher.parse(xml) }
   end
 end

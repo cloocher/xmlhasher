@@ -4,27 +4,27 @@ require 'benchmark'
 require 'xmlhasher'
 begin
   require 'nori'
-rescue
+rescue LoadError
   puts "nori gem in not installed, run 'gem install nori'"
 end
 begin
   require 'active_support/core_ext/hash/conversions'
-rescue
+rescue LoadError
   puts "active_support gem in not installed, run 'gem install activesupport'"
 end
 begin
   require 'xmlsimple'
-rescue
+rescue LoadError
   puts "xmlsimple gem in not installed, run 'gem install xml-simple'"
 end
 begin
   require 'nokogiri'
-rescue
+rescue LoadError
   puts "nokogiri gem in not installed, run 'gem install nokogiri'"
 end
 begin
   require 'libxml'
-rescue
+rescue LoadError
   puts "libxml gem in not installed, run 'gem install libxml-ruby'"
 end
 

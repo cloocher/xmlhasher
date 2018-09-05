@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
-]
+])
 SimpleCov.start
 
 require 'test/unit'

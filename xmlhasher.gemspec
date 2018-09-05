@@ -18,10 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version     = '>= 1.8.7'
+  spec.required_ruby_version     = '>= 1.9.3'
   spec.required_rubygems_version = '>= 1.3.6'
 
-  spec.add_dependency 'ox', '2.2.1'
+  spec.add_dependency 'ox', '2.10.0'
   spec.add_dependency 'escape_utils', '>= 1.2.0'
 
   spec.add_development_dependency 'rake'

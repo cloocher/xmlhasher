@@ -60,26 +60,25 @@ How fast is it?  Try it for yourself - [benchmark.rb](https://github.com/clooche
 
 ```
 Converting small xml from text to Hash:
-
-                            user     system      total        real
-activesupport(rexml)     0.380000   0.000000   0.380000 (  0.385326)
-activesupport(libxml)    0.060000   0.000000   0.060000 (  0.062008)
-activesupport(nokogiri)  0.090000   0.000000   0.090000 (  0.089466)
-xmlsimple                0.480000   0.010000   0.490000 (  0.490938)
-nori                     0.120000   0.000000   0.120000 (  0.123612)
-xmlhasher                0.010000   0.000000   0.010000 (  0.017366)
+                 user     system      total        real
+activesupport(rexml)     0.196861   0.000692   0.197553 (  0.197756)
+activesupport(libxml)    0.028840   0.000176   0.029016 (  0.029037)
+activesupport(nokogiri)  0.044063   0.000516   0.044579 (  0.044618)
+xmlsimple                0.225291   0.014291   0.239582 (  0.239756)
+nori                     0.048385   0.000379   0.048764 (  0.048806)
+xmlhasher                0.011791   0.000098   0.011889 (  0.011895)
 
 Converting large xml from file to Hash:
+                 user     system      total        real
+activesupport(rexml)    26.292078   0.194510  26.486588 ( 26.517318)
+activesupport(libxml)    0.000003   0.000001   0.000004 (  0.000003)
+activesupport(nokogiri)  5.826111   0.054769   5.880880 (  5.898245)
+xmlsimple               27.155912   0.145871  27.301783 ( 27.354889)
+nori                     6.941154   0.059518   7.000672 (  7.007761)
+xmlhasher                1.750827   0.032303   1.783130 (  1.784449)
 
-                            user     system      total        real
-activesupport(rexml)    57.230000   0.240000  57.470000 ( 57.460510)
-activesupport(libxml)   # Segmentation fault
-activesupport(nokogiri) 12.650000   0.250000  12.900000 ( 12.908073)
-xmlsimple               49.980000   0.160000  50.140000 ( 50.140775)
-nori                    15.590000   0.110000  15.700000 ( 15.697411)
-xmlhasher                4.290000   0.030000   4.320000 (  4.316379)
 ```
-Note: benchmarks were generated on a Macbook Pro using Ruby 1.9.3p392
+Note: benchmarks were generated on a Macbook Pro using Ruby 2.5.1p57
 
 ## Requirements
 

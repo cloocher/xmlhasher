@@ -70,12 +70,12 @@ xmlhasher                0.011791   0.000098   0.011889 (  0.011895)
 
 Converting large xml from file to Hash:
                  user     system      total        real
-activesupport(rexml)    26.292078   0.194510  26.486588 ( 26.517318)
-activesupport(libxml)    0.000003   0.000001   0.000004 (  0.000003)
-activesupport(nokogiri)  5.826111   0.054769   5.880880 (  5.898245)
-xmlsimple               27.155912   0.145871  27.301783 ( 27.354889)
-nori                     6.941154   0.059518   7.000672 (  7.007761)
-xmlhasher                1.750827   0.032303   1.783130 (  1.784449)
+activesupport(rexml)    25.891326   0.144542  26.035868 ( 26.052577)
+activesupport(libxml)    3.911317   0.072332   3.983649 (  3.985904)
+activesupport(nokogiri)  6.126251   0.061193   6.187444 (  6.191296)
+xmlsimple               26.128386   0.120480  26.248866 ( 26.265013)
+nori                     6.347459   0.028522   6.375981 (  6.380416)
+xmlhasher                1.738668   0.027549   1.766217 (  1.767256)
 
 ```
 Note: benchmarks were generated on a Macbook Pro using Ruby 2.5.1p57

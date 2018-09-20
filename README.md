@@ -56,30 +56,29 @@ XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 ```
 ## Benchmarks
 
-How fast is it?  Try it for yourself - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/benchmark/benchmark.rb)
+How fast is it?  Try it for yourself `rake benchmark`
 
-```
+```sh
 Converting small xml from text to Hash:
-
-                            user     system      total        real
-activesupport(rexml)     0.380000   0.000000   0.380000 (  0.385326)
-activesupport(libxml)    0.060000   0.000000   0.060000 (  0.062008)
-activesupport(nokogiri)  0.090000   0.000000   0.090000 (  0.089466)
-xmlsimple                0.480000   0.010000   0.490000 (  0.490938)
-nori                     0.120000   0.000000   0.120000 (  0.123612)
-xmlhasher                0.010000   0.000000   0.010000 (  0.017366)
+                 user     system      total        real
+activesupport(rexml)     0.196861   0.000692   0.197553 (  0.197756)
+activesupport(libxml)    0.028840   0.000176   0.029016 (  0.029037)
+activesupport(nokogiri)  0.044063   0.000516   0.044579 (  0.044618)
+xmlsimple                0.225291   0.014291   0.239582 (  0.239756)
+nori                     0.048385   0.000379   0.048764 (  0.048806)
+xmlhasher                0.011791   0.000098   0.011889 (  0.011895)
 
 Converting large xml from file to Hash:
+                 user     system      total        real
+activesupport(rexml)    25.891326   0.144542  26.035868 ( 26.052577)
+activesupport(libxml)    3.911317   0.072332   3.983649 (  3.985904)
+activesupport(nokogiri)  6.126251   0.061193   6.187444 (  6.191296)
+xmlsimple               26.128386   0.120480  26.248866 ( 26.265013)
+nori                     6.347459   0.028522   6.375981 (  6.380416)
+xmlhasher                1.738668   0.027549   1.766217 (  1.767256)
 
-                            user     system      total        real
-activesupport(rexml)    57.230000   0.240000  57.470000 ( 57.460510)
-activesupport(libxml)   # Segmentation fault
-activesupport(nokogiri) 12.650000   0.250000  12.900000 ( 12.908073)
-xmlsimple               49.980000   0.160000  50.140000 ( 50.140775)
-nori                    15.590000   0.110000  15.700000 ( 15.697411)
-xmlhasher                4.290000   0.030000   4.320000 (  4.316379)
 ```
-Note: benchmarks were generated on a Macbook Pro using Ruby 1.9.3p392
+Note: benchmarks were generated on a 2015 Macbook Pro using Ruby 2.5.1
 
 ## Requirements
 

@@ -17,7 +17,7 @@ module XmlHasher
         if children.size == 1
           h[name].merge!(children.first.to_hash)
         else
-          h[name].merge!(children.group_by { |child| child.name }.inject({}) { |r, (k, v)| v.length == 1 ? r.merge!(v.first.to_hash) : r[k] = v.map { |c| c.to_hash[c.name] }; r })
+          h[name].merge!(children.group_by { |c| c.name }.inject({}) { |r, (k, v)| v.length == 1 ? r.merge!(v.first.to_hash) : r[k] = v.map { |c| c.to_hash[c.name] }; r })
         end
       end
       h[name] = nil if h[name].empty?

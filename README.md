@@ -56,9 +56,9 @@ XmlHasher.parse("<tag1><tag2>content</tag2></tag1>")
 ```
 ## Benchmarks
 
-How fast is it?  Try it for yourself - [benchmark.rb](https://github.com/cloocher/xmlhasher/blob/master/benchmark/benchmark.rb)
+How fast is it?  Try it for yourself `rake benchmark`
 
-```
+```sh
 Converting small xml from text to Hash:
                  user     system      total        real
 activesupport(rexml)     0.196861   0.000692   0.197553 (  0.197756)
@@ -78,7 +78,7 @@ nori                     6.347459   0.028522   6.375981 (  6.380416)
 xmlhasher                1.738668   0.027549   1.766217 (  1.767256)
 
 ```
-Note: benchmarks were generated on a Macbook Pro using Ruby 2.5.1p57
+Note: benchmarks were generated on a 2015 Macbook Pro using Ruby 2.5.1
 
 ## Requirements
 

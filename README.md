@@ -60,24 +60,25 @@ How fast is it?  Try it for yourself `rake benchmark`
 
 ```sh
 Converting small xml from text to Hash:
-                                user     system      total        real
-activesupport(rexml)        0.210000   0.010000   0.220000 (  0.213469)
-activesupport(libxml)       0.030000   0.000000   0.030000 (  0.037686)
-activesupport(nokogiri)     0.060000   0.000000   0.060000 (  0.054711)
-xmlsimple                   0.250000   0.020000   0.270000 (  0.268634)
-nori                        0.060000   0.000000   0.060000 (  0.062009)
-xmlhasher                   0.010000   0.000000   0.010000 (  0.013124)
+                 user     system      total        real
+activesupport(rexml)     0.196861   0.000692   0.197553 (  0.197756)
+activesupport(libxml)    0.028840   0.000176   0.029016 (  0.029037)
+activesupport(nokogiri)  0.044063   0.000516   0.044579 (  0.044618)
+xmlsimple                0.225291   0.014291   0.239582 (  0.239756)
+nori                     0.048385   0.000379   0.048764 (  0.048806)
+xmlhasher                0.011791   0.000098   0.011889 (  0.011895)
 
 Converting large xml from file to Hash:
-                                user     system      total        real
-activesupport(rexml)       31.980000   0.390000  32.370000 ( 32.486670)
-activesupport(libxml)       5.050000   0.080000   5.130000 (  5.163404)
-activesupport(nokogiri)     7.080000   0.090000   7.170000 (  7.218073)
-xmlsimple                  32.040000   0.290000  32.330000 ( 32.490272)
-nori                        8.480000   0.150000   8.630000 (  8.698013)
-xmlhasher                   2.580000   0.050000   2.630000 (  2.640795)
+                 user     system      total        real
+activesupport(rexml)    25.891326   0.144542  26.035868 ( 26.052577)
+activesupport(libxml)    3.911317   0.072332   3.983649 (  3.985904)
+activesupport(nokogiri)  6.126251   0.061193   6.187444 (  6.191296)
+xmlsimple               26.128386   0.120480  26.248866 ( 26.265013)
+nori                     6.347459   0.028522   6.375981 (  6.380416)
+xmlhasher                1.738668   0.027549   1.766217 (  1.767256)
+
 ```
-Note: benchmarks were generated on a 2016 MacBook Pro using Ruby 2.4.1
+Note: benchmarks were generated on a 2015 Macbook Pro using Ruby 2.5.1
 
 ## Requirements
 

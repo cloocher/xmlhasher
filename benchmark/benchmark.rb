@@ -64,26 +64,6 @@ end
 
 puts 'Converting small xml from text to Hash:'
 benchmark(100, File.read(File.expand_path('../../test/fixtures/institution.xml', __FILE__)))
-puts
-runs = 5
-path = File.expand_path('../../test/fixtures/institutions.xml', __FILE__)
-puts 'Converting large xml from file to Hash:'
-Benchmark.bm 5 do |x|
-  ActiveSupport::XmlMini.backend = ActiveSupport::XmlMini_REXML
-  x.report 'activesupport(rexml)   ' do
-    runs.times { Hash.from_xml(File.new(path)) }
-  end
-
-  ActiveSupport::XmlMini.backend = 'LibXML'
-  x.report 'activesupport(libxml)  ' do
-    runs.times { Hash.from_xml(File.new(path)) } # Segmentation fault
-  end
-
-  ActiveSupport::XmlMini.backend = 'Nokogiri'
-  x.report 'activesupport(nokogiri)' do
-    runs.times { Hash.from_xml(File.new(path)) }
-  end
-
 puts 'Converting large xml from file to Hash:'
 benchmark(5, File.read(File.expand_path('../../test/fixtures/institutions.xml', __FILE__)))
 puts

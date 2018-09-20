@@ -73,7 +73,7 @@ Benchmark.bm 5 do |x|
 
   ActiveSupport::XmlMini.backend = 'LibXML'
   x.report 'activesupport(libxml)  ' do
-    #runs.times { Hash.from_xml(File.new(path)) } # Segmentation fault
+    runs.times { Hash.from_xml(File.new(path)) } # Segmentation fault
   end
 
   ActiveSupport::XmlMini.backend = 'Nokogiri'

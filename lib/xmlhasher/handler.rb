@@ -6,6 +6,7 @@ module XmlHasher
     def initialize(options = {})
       @options = options
       @stack = []
+      @transform_cache = {}
     end
 
     def to_hash
@@ -42,9 +43,13 @@ module XmlHasher
     private
 
     def transform(name)
+      return @transform_cache[name] if @transform_cache[name]
+      orig_name = name
+
       name = name.to_s.split(':').last if @options[:ignore_namespaces]
       name = Util.snakecase(name) if @options[:snakecase]
       name = name.to_sym unless @options[:string_keys]
+      @transform_cache[orig_name] = name
       name
     end
 

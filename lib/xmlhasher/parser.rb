@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'stringio'
 
 module XmlHasher
   class Parser
-
     def initialize(options = {})
       @options = options
     end

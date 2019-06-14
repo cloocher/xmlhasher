@@ -1,4 +1,6 @@
-$:.push File.expand_path('../../lib', __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path('../lib', __dir__)
 
 require 'benchmark'
 require 'xmlhasher'
@@ -28,7 +30,6 @@ rescue LoadError
   puts "libxml gem in not installed, run 'gem install libxml-ruby'"
 end
 
-
 def benchmark(runs, xml)
   label_width = 25 # needs to be >= any label's size
 
@@ -53,7 +54,7 @@ def benchmark(runs, xml)
     end
 
     x.report 'nori' do
-      runs.times { Nori.new(:advanced_typecasting => false).parse(xml) }
+      runs.times { Nori.new(advanced_typecasting: false).parse(xml) }
     end
 
     x.report 'xmlhasher' do
@@ -63,7 +64,7 @@ def benchmark(runs, xml)
 end
 
 puts 'Converting small xml from text to Hash:'
-benchmark(100, File.read(File.expand_path('../../test/fixtures/institution.xml', __FILE__)))
+benchmark(100, File.read(File.expand_path('../test/fixtures/institution.xml', __dir__)))
 puts 'Converting large xml from file to Hash:'
-benchmark(5, File.read(File.expand_path('../../test/fixtures/institutions.xml', __FILE__)))
+benchmark(5, File.read(File.expand_path('../test/fixtures/institutions.xml', __dir__)))
 puts

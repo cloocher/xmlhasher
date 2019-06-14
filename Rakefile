@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 
@@ -7,9 +9,9 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = true
 end
 
-desc "Run the benchmarks"
+desc 'Run the benchmarks'
 task :benchmark do
-  system("ruby", File.join(File.dirname(__FILE__), "benchmark", "benchmark.rb"))
+  system('ruby', File.join(File.dirname(__FILE__), 'benchmark', 'benchmark.rb'))
 end
 
-task :default => :test
+task default: :test

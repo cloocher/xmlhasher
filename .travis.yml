@@ -6,5 +6,6 @@ rvm:
   - 2.5.1
   - 2.6.3
 script:
+  - ./script/ci
   - gem build xmlhasher.gemspec
   - gem install xmlhasher-*

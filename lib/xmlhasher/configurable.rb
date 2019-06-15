@@ -15,7 +15,7 @@ module XmlHasher
 
     def options
       XmlHasher::Configurable::KEYS.each_with_object({}) do |key, hash|
-        hash[key] = instance_variable_get(:"@#{key}");
+        hash[key] = instance_variable_get(:"@#{key}")
       end
     end
   end

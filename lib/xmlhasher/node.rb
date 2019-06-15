@@ -11,19 +11,18 @@ module XmlHasher
     end
 
     def to_hash
-      retult = {}
-
-      if text && !text.empty?
-        retult[name] = text
-      else
-        retult[name] = prepare_attributes.merge(prepare_children)
-      end
-
+      retult = { name => content }
       retult[name] = nil if retult[name].empty?
       retult
     end
 
     private
+
+    def content
+      return text if text && !text.empty?
+
+      prepare_attributes.merge(prepare_children)
+    end
 
     def prepare_attributes
       attributes.each_with_object({}) do |(key, value), data|

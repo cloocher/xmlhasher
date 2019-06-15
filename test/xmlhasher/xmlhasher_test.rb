@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class XmlhasherTest < Test::Unit::TestCase
-
   def test_configure_settings_all_on
     configurable = XmlHasher.configure do |config|
       config.snakecase = true
@@ -37,5 +38,4 @@ class XmlhasherTest < Test::Unit::TestCase
     assert_not_empty result
     assert_equal Hash, result.class
   end
-
 end

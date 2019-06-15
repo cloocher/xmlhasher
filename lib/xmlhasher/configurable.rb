@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module XmlHasher
   module Configurable
-
     attr_writer :snakecase, :ignore_namespaces, :string_keys
 
-    KEYS = [:snakecase, :ignore_namespaces, :string_keys]
+    KEYS = %i[snakecase ignore_namespaces string_keys].freeze
 
     def configure
       yield self
@@ -13,8 +14,7 @@ module XmlHasher
     private
 
     def options
-      XmlHasher::Configurable::KEYS.inject({}) { |hash, key| hash[key] = instance_variable_get(:"@#{key}"); hash }
+      XmlHasher::Configurable::KEYS.each_with_object({}) { |key, hash| hash[key] = instance_variable_get(:"@#{key}"); }
     end
-
   end
 end

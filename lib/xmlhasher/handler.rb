@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ox'
 require 'escape_utils'
 
@@ -18,9 +20,7 @@ module XmlHasher
     end
 
     def attr(name, value)
-      unless ignore_attribute?(name)
-        @stack.last.attributes[transform(name)] = escape(value) unless @stack.empty?
-      end
+      @stack.last.attributes[transform(name)] = escape(value) if !ignore_attribute?(name) && !@stack.empty?
     end
 
     def text(value)
@@ -31,7 +31,7 @@ module XmlHasher
       @stack.last.text = escape(str)
     end
 
-    def end_element(name)
+    def end_element(_name)
       if @stack.size == 1
         @hash = @stack.pop.to_hash
       else
@@ -44,6 +44,7 @@ module XmlHasher
 
     def transform(name)
       return @transform_cache[name] if @transform_cache[name]
+
       orig_name = name
 
       name = name.to_s.split(':').last if @options[:ignore_namespaces]

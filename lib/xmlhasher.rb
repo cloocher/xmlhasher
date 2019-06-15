@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'xmlhasher/configurable'
 require 'xmlhasher/handler'
 require 'xmlhasher/parser'
@@ -17,9 +19,8 @@ module XmlHasher
 
     def method_missing(method_name, *args, &block)
       return super unless parser.respond_to?(method_name)
+
       parser.send(method_name, *args, &block)
     end
-
   end
-
 end

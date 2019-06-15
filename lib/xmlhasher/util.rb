@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module XmlHasher
   module Util
     def self.snakecase(str)

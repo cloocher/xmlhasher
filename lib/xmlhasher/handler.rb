@@ -20,7 +20,9 @@ module XmlHasher
     end
 
     def attr(name, value)
-      @stack.last.attributes[transform(name)] = escape(value) if !ignore_attribute?(name) && !@stack.empty?
+      return if ignore_attribute?(name) || @stack.empty?
+
+      @stack.last.attributes[transform(name)] = escape(value)
     end
 
     def text(value)

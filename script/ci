@@ -2,12 +2,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-prepare_build() {
-  if [ -d coverage ]; then
-    rm -rf coverage
-  fi
-}
-
 print_ruby_version() {
   echo "Using $(ruby -v)"
   echo
@@ -18,9 +12,7 @@ run_tests() {
 }
 
 main() {
-  prepare_build &&
-    print_ruby_version &&
-    run_tests
+  print_ruby_version && run_tests
 }
 
 main

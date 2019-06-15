@@ -7,11 +7,11 @@ class XmlhasherTest < Test::Unit::TestCase
     hash = {
       InstitutionDetail: {
         address: {
-          :'ns2:address1' => '100 Main Street',
-          :'ns2:city' => 'Anytown',
-          :'ns2:country' => 'USA',
-          :'ns2:postalCode' => '94043',
-          :'ns2:state' => 'CA'
+          'ns2:address1': '100 Main Street',
+          'ns2:city': 'Anytown',
+          'ns2:country': 'USA',
+          'ns2:postalCode': '94043',
+          'ns2:state': 'CA'
         },
         currencyCode: 'ANG',
         emailAddress: 'CustomerCentralBank@intuit.com',
@@ -49,7 +49,7 @@ class XmlhasherTest < Test::Unit::TestCase
         },
         phoneNumber: '123-456-7890',
         xmlns: 'http://schema.intuit.com/platform/fdatafeed/account/v1',
-        :'xmlns:ns2' => 'http://schema.intuit.com/platform/fdatafeed/common/v1'
+        'xmlns:ns2': 'http://schema.intuit.com/platform/fdatafeed/common/v1'
       }
     }
     result = XmlHasher::Parser.new.parse(fixture('institution.xml').read)

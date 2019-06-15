@@ -19,6 +19,10 @@ or add it to your Gemfile like this:
 gem 'xmlhasher'
 ```
 
+## Release Notes
+
+See [CHANGELOG.md](CHANGELOG.md)
+
 ## Usage
 
 ```ruby

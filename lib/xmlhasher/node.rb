@@ -11,9 +11,8 @@ module XmlHasher
     end
 
     def to_hash
-      retult = { name => content }
-      retult[name] = nil if retult[name].empty?
-      retult
+      node_content = content
+      { name => node_content.empty? ? nil : node_content }
     end
 
     private

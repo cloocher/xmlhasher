@@ -4,6 +4,7 @@ All changes to the XmlHasher gem are documented here. Releases follow semantic v
 
 ## [Unreleased]
 
+- Updated ox version.
 - Fixed warning for global variable `$INPUT_RECORD_SEPARATOR`.
 - CHANGELOG.md added.
 - Use new ruby style guide and `rubocop` gem.

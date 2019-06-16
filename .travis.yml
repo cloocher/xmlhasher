@@ -5,6 +5,8 @@ rvm:
   - 2.3.0
   - 2.5.1
   - 2.6.3
+env:
+  - CI=true
 script:
   - ./script/ci
   - gem build xmlhasher.gemspec

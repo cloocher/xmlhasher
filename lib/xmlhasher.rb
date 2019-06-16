@@ -22,5 +22,9 @@ module XmlHasher
 
       parser.send(method_name, *args, &block)
     end
+
+    def respond_to_missing?(method_name, include_private = false)
+      super
+    end
   end
 end

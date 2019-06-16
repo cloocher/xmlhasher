@@ -2,9 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-print_ruby_version() {
+init_ruby_version() {
   echo "Using $(ruby -v)"
-  echo
+  echo "$(cut -d'@' -f1 <<<"$(rvm current)")" > .ruby-version
+}
+
+run_code_quality_checks() {
+  bundle exec rubocop .
 }
 
 run_tests() {
@@ -12,7 +16,9 @@ run_tests() {
 }
 
 main() {
-  print_ruby_version && run_tests
+  init_ruby_version &&
+    run_code_quality_checks &&
+    run_tests
 }
 
 main

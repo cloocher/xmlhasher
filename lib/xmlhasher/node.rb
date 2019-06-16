@@ -20,10 +20,10 @@ module XmlHasher
     def content
       return text if text && !text.empty?
 
-      prepare_attributes.merge(prepare_children)
+      attributes_to_hash.merge(children_to_hash)
     end
 
-    def prepare_attributes
+    def attributes_to_hash
       attributes.each_with_object({}) do |(key, value), data|
         next if value.nil? || value.to_s.empty?
 
@@ -31,7 +31,7 @@ module XmlHasher
       end
     end
 
-    def prepare_children
+    def children_to_hash
       return children.first.to_hash if children.size == 1
 
       children.group_by(&:name).each_with_object({}) do |(key, nodes), data|

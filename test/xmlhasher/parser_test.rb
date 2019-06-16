@@ -4,8 +4,8 @@ require 'test_helper'
 
 class XmlhasherTest < Test::Unit::TestCase
   def test_string_parsing_no_tranformation
-    # rubocop:disable Style/HashSyntax
-    # because ruby 2.0 do not support string keys with new syntax
+    # rubocop:disable Style/HashSyntax, Lint/UnneededCopDisableDirective
+    # because ruby 2.0 does not support new hash syntax
     hash = {
       InstitutionDetail: {
         address: {
@@ -54,7 +54,7 @@ class XmlhasherTest < Test::Unit::TestCase
         :'xmlns:ns2' => 'http://schema.intuit.com/platform/fdatafeed/common/v1'
       }
     }
-    # rubocop:enable Style/HashSyntax
+    # rubocop:enable Style/HashSyntax, Lint/UnneededCopDisableDirective
     result = XmlHasher::Parser.new.parse(fixture('institution.xml').read)
     assert_equal hash, result
   end

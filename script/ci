@@ -8,7 +8,9 @@ init_ruby_version() {
 }
 
 run_code_quality_checks() {
-  bundle exec rubocop .
+  if [[ "$(rvm current)" != *"2.0.0"* ]]; then
+    bundle exec rubocop .
+  fi
 }
 
 run_tests() {

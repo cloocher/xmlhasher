@@ -2,6 +2,12 @@
 
 All changes to the XmlHasher gem are documented here. Releases follow semantic versioning.
 
+## [Unreleased]
+
+- Resolve gem build warnings .
+- Run tests on CI
+- Little refactoring for Node hash builder.
+
 ## [1.0.5] - 2019-06-16
 
 - Updated ox version.

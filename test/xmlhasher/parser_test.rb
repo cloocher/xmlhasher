@@ -4,14 +4,16 @@ require 'test_helper'
 
 class XmlhasherTest < Test::Unit::TestCase
   def test_string_parsing_no_tranformation
+    # rubocop:disable Style/HashSyntax, Lint/UnneededCopDisableDirective
+    # because ruby 2.0 does not support new hash syntax
     hash = {
       InstitutionDetail: {
         address: {
-          "ns2:address1": '100 Main Street',
-          "ns2:city": 'Anytown',
-          "ns2:country": 'USA',
-          "ns2:postalCode": '94043',
-          "ns2:state": 'CA'
+          :'ns2:address1' => '100 Main Street',
+          :'ns2:city' => 'Anytown',
+          :'ns2:country' => 'USA',
+          :'ns2:postalCode' => '94043',
+          :'ns2:state' => 'CA'
         },
         currencyCode: 'ANG',
         emailAddress: 'CustomerCentralBank@intuit.com',
@@ -49,9 +51,10 @@ class XmlhasherTest < Test::Unit::TestCase
         },
         phoneNumber: '123-456-7890',
         xmlns: 'http://schema.intuit.com/platform/fdatafeed/account/v1',
-        "xmlns:ns2": 'http://schema.intuit.com/platform/fdatafeed/common/v1'
+        :'xmlns:ns2' => 'http://schema.intuit.com/platform/fdatafeed/common/v1'
       }
     }
+    # rubocop:enable Style/HashSyntax, Lint/UnneededCopDisableDirective
     result = XmlHasher::Parser.new.parse(fixture('institution.xml').read)
     assert_equal hash, result
   end

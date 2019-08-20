@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+init_ruby_version() {
+  echo "Using $(ruby -v)"
+  echo "$(cut -d'@' -f1 <<<"$(rvm current)")" > .ruby-version
+}
+
+run_code_quality_checks() {
+  if [[ "$(rvm current)" != *"2.0.0"* ]]; then
+    bundle exec rubocop .
+  fi
+}
+
+run_tests() {
+  bundle exec rake test
+}
+
+main() {
+  init_ruby_version &&
+    run_code_quality_checks &&
+    run_tests
+}
+
+main

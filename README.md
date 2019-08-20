@@ -86,7 +86,7 @@ Note: benchmarks were generated on a 2015 Macbook Pro using Ruby 2.5.1
 
 ## Requirements
 
-* Ruby 1.9.3 or higher
+* Ruby 2.0.0 or higher
 
 ## Copyright
 Copyright (c) 2013 Gene Drabkin.

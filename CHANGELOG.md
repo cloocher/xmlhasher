@@ -7,6 +7,7 @@ All changes to the XmlHasher gem are documented here. Releases follow semantic v
 - Resolve gem build warnings .
 - Run tests on CI
 - Little refactoring for Node hash builder.
+- Use new ruby style guide and `rubocop` gem.
 
 ## [1.0.5] - 2019-06-16
 

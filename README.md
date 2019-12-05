@@ -44,7 +44,7 @@ end
 # alternatively, specify configuration options when instantiating a Parser
 parser = XmlHasher::Parser.new(
   :snakecase => true,
-  :ignore_namespaces => true
+  :ignore_namespaces => true,
   :string_keys => false
 )
 

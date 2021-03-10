@@ -27,4 +27,4 @@ Naming/VariableNumber:
   Enabled: false
 
 Gemspec/RequiredRubyVersion:
-  Enabled: <%= ENV['CI'] == true %>
+  Enabled: <%= ENV['CI'] != 'true' %>

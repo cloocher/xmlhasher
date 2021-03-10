@@ -22,3 +22,9 @@ Metrics/PerceivedComplexity:
 Style/MissingRespondToMissing:
   Exclude:
     - 'lib/xmlhasher.rb'
+
+Naming/VariableNumber:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: <%= ENV['CI'] == true %>

@@ -9,6 +9,8 @@ module XmlHasher
       @options = options
       @stack = []
       @transform_cache = {}
+
+      super()
     end
 
     def to_hash

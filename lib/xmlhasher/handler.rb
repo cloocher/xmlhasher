@@ -59,7 +59,7 @@ module XmlHasher
     end
 
     def escape(value)
-      EscapeUtils.unescape_html(value)
+      CGI.unescapeHTML(value)
     end
 
     def ignore_attribute?(name)

@@ -2,9 +2,13 @@
 
 All changes to the XmlHasher gem are documented here. Releases follow semantic versioning.
 
+## [Unreleased]
+
+- Fix deprecation warning: "EscapeUtils.unescape_html is deprecated".
+
 ## [1.0.6] - 2021-03-10
 
-- Resolve gem build warnings .
+- Resolve gem build warnings.
 - Run tests on CI
 - Little refactoring for Node hash builder.
 - Use new ruby style guide and `rubocop` gem.

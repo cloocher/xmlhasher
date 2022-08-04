@@ -2,7 +2,7 @@
 
 All changes to the XmlHasher gem are documented here. Releases follow semantic versioning.
 
-## [Unreleased]
+## [1.0.7] - 2022-08-04
 
 - Fix deprecation warning: "EscapeUtils.unescape_html is deprecated".
 
